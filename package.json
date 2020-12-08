@@ -1,0 +1,32 @@
+{
+  "name": "maiy",
+  "version": "1.0.0",
+  "description": "login posting page",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G9/MAIY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G9/MAIY/issues"
+  },
+  "homepage": "https://github.com/GSG-G9/MAIY#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.6"
+  }
+}
