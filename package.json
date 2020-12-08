@@ -4,7 +4,7 @@
   "description": "login posting page",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "start": "node src/index.js"
   },
   "repository": {
