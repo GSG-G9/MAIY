@@ -3,7 +3,7 @@ BEGIN;
 DROP TABLE IF EXISTS comments,
 posts CASCADE;
 
-CREATE TABLE posts (
+CREATE TABLE posts (  
     id SERIAL PRIMARY KEY,
     post_content TEXT NOT NULL
 );

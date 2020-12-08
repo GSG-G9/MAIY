@@ -2,7 +2,7 @@
   "name": "maiy",
   "version": "1.0.0",
   "description": "login posting page",
-  "main": "index.js",
+  "main":  "index.js",
   "scripts": {
     "test": "jest --passWithNoTests",
     "start": "node src/index.js",

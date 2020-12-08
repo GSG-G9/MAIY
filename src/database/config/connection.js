@@ -8,4 +8,4 @@ const options = {
   ssl: true,
 };
 const pool = new Pool(options);
-module.exports = pool;
+module.exports = pool; 
