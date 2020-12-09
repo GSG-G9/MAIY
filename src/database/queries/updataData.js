@@ -5,7 +5,7 @@ const updatePost = (postId, postContent) => {
         text: 'UPDATE posts SET post_content = $2 WHERE id = $1',
         values: [postId, postContent],
     };
-    return connection.query(`UPDATE posts SET post_content = ${postContent} WHERE id = ${postId}`);
+    return connection.query(sql);
 };
 
 module.exports = { updatePost };
