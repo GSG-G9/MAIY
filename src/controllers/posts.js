@@ -13,13 +13,12 @@ const createPosts = (req, res, next) => {
   const { postContent } = req.body;
   if (!postContent) {
     next(errCatcher('EMPTY input...', 400));
-  } else {
-    postPosts(postContent)
-      .then(
-        ({ rows }) => res.status(200).json({ rows }),
-      )
-      .catch(next(errCatcher('something went wrong...', 400)));
   }
+  postPosts(postContent)
+    .then(
+      ({ rows }) => res.status(200).json({ rows }),
+    )
+    .catch(next(errCatcher('something went wrong...', 400)));
 };
 
 const updatePost = (req, res, next) => {
@@ -27,11 +26,10 @@ const updatePost = (req, res, next) => {
   const { postId } = req.params;
   if (!postContent) {
     next(errCatcher('EMPTY input...', 400));
-  } else {
-    updateData(postId, postContent)
-      .then(({ rows }) => res.status(200).json({ rows }))
-      .catch(next(errCatcher('something went wrong...', 400)));
   }
+  updateData(postId, postContent)
+    .then(({ rows }) => res.status(200).json({ rows }))
+    .catch(next(errCatcher('something went wrong...', 400)));
 };
 
 module.exports = { getPosts, createPosts, updatePost };
