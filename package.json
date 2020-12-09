@@ -4,9 +4,9 @@
   "description": "login posting page",
   "main":  "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests",
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "test": "NODE_ENV=test jest --watch",
+    "start": "NODE_ENV=production node src/index.js",
+    "dev": "NODE_ENV=development nodemon src/index.js"
   },
   "repository": {
     "type": "git",
