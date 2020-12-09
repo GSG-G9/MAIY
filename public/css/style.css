@@ -111,12 +111,14 @@ body {
   align-items: center;
   min-height: 405px;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .news-feed::-webkit-scrollbar {
   display: none;
 }
 .news-feed .post-card {
+  width: 100%;
   background-color: #ffe48b;
   padding: 0.5rem;
   border-bottom: 3px solid #fac61a;

@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { getPosts, createPosts, updatePost } = require('../controllers/index');
+const { getPosts, createPost, updatePost } = require('../controllers/index');
 
 router.get('/posts', getPosts);
 
-router.post('/create-post', createPosts);
+router.post('/create-post', createPost);
 
 router.patch('/update-post/:postId', updatePost);
 

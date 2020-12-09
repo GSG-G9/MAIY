@@ -1,4 +1,5 @@
 const newsFeed = document.querySelector('.news-feed');
+const addButton = document.querySelector('.add-button');
 
 const creatElm = (className, tag) => {
   const div = document.createElement(tag);
@@ -12,32 +13,66 @@ const creatDiv = (className) => {
   return div;
 };
 
-const createPost = (obj) => {
+const createPost = ({ post_content: postContent }) => {
   const postCard = creatDiv('post-card');
   const postContainer = creatDiv('post-container');
   const username = creatDiv('username');
   const title = creatElm('title', 'h4');
-  title.innerText = obj.username;
+  title.innerText = 'MAIY TEAM';
   username.appendChild(title);
   postContainer.appendChild(username);
-  const postContent = creatDiv('post-content');
+  const postContentEl = creatDiv('post-content');
   const postText = creatElm('post-text', 'p');
-  postText.innerText = obj.postContent;
-  postContent.appendChild(postText);
-  postCard.append(postContainer, postContent);
+  postText.innerText = postContent;
+  postContentEl.appendChild(postText);
+  postCard.append(postContainer, postContentEl);
   newsFeed.appendChild(postCard);
 };
 
 const makeEmpty = () => {
-  const blockArr = document.querySelectorAll('.single-anime-container');
+  const blockArr = document.querySelectorAll('.post-card');
   blockArr.forEach((item) => {
     item.remove();
   });
 };
 
-const renderData = (array) => {
+const renderData = ({ data }) => {
   makeEmpty();
-  array.forEach((obj) => {
+  console.log(data);
+  data.rows.forEach((obj) => {
     createPost(obj);
   });
 };
+
+addButton.addEventListener('click', () => {
+  const postInput = document.querySelector('.post-input').value;
+  fetch('/api/v1/create-post', {
+    method: 'POST',
+    body: JSON.stringify({ postContent: postInput }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      fetch('/api/v1/posts')
+        .then((res) => res.json())
+        .then(({ data }) => {
+          console.log(data);
+          renderData({ data });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => console.log(err));
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('/api/v1/posts')
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      renderData({ data });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
