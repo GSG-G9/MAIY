@@ -1,130 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Roar</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Roar</title>
-	<link rel="stylesheet" href="./css/style.css">
-</head>
-
-<body>
-	<div class="page">
-		<header class="header">
-			<div class="header-container">
-				<div class="hedaer-container__main">
-					<div class="header_logo">
-						<h1>
-							<a href="/"><i class="fab fa-twitter"></i></a>
-						</h1>
-					</div>
-					<div class="header-nav">
-						<nav>
-							<a class="header-nav__navlink active" href="/index.html">
-								<div class="header-nav__navlink_content_box">
-									<div class="header-nav__navlink_content_box__icon">
-										<i class="fas fa-home"></i>
-									</div>
-									<div class="header-nav__navlink_content_box__linkname">
-										<span>Home</span>
-									</div>
-								</div>
-							</a>
-							<a class="header-nav__navlink" href="">
-								<div class="header-nav__navlink_content_box">
-									<div class="header-nav__navlink_content_box__icon">
-										<i class="fas fa-hashtag"></i>
-									</div>
-									<div class="header-nav__navlink_content_box__linkname">
-										<span>Explore</span>
-									</div>
-								</div>
-							</a>
-							<a class="header-nav__navlink" href="">
-								<div class="header-nav__navlink_content_box">
-									<div class="header-nav__navlink_content_box__icon">
-										<i class="fas fa-bell"></i>
-									</div>
-									<div class="header-nav__navlink_content_box__linkname">
-										<span>Notifications</span>
-									</div>
-								</div>
-							</a>
-							<a class="header-nav__navlink" href="">
-								<div class="header-nav__navlink_content_box">
-									<div class="header-nav__navlink_content_box__icon">
-										<i class="fas fa-envelope"></i>
-									</div>
-									<div class="header-nav__navlink_content_box__linkname">
-										<span>Messages</span>
-									</div>
-								</div>
-							</a>
-						</nav>
-					</div>
-					<div class="tweet">
-						<a href="http://">
-							<div class="tweet_text_box">
-								<span>Tweet</span>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</header>
-		<div class="mian sticky">
-			<div class="post-fild">
-				<div class="post-fild-top">
-					<input class="post-fild-input" id="main-post" placeholder="What's happening?">
-				</div>
-				<div class="post-fild__bottom">
-					<button id="tweet_button" class="butn">Post</button>
-				</div>
-			</div>
-			<div class="news-feed">
-				<div class="post-card">
-					<div class="status-bar">
-
-					</div>
-					<div class="post-container">
-						<div class="avatar">
-						</div>
-						<div class="post-content-container">
-							<div class="post-content-status">
-								<div class="username">
-									<h4>Alaa Shurrab</h4>
-								</div>
-								<div class="post-date">
-
-								</div>
-							</div>
-							<div class="post-content">
-								<p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="interaction-bar">
-						<span class="comment"></span>
-						<span class="like"></span>
-						<span class="re-roar"></span>
-					</div>
-				</div>
-			</div>
-			<div class="right-bar sticky">
-
-			</div>
-		</div>
-		<div class="post-form form-container" id="post-form">
-			<input type="text" id="tweet" name="tweet" placeholder="what to do"><br>
-			<input type="button" value="submit" class="submit butn form-btn-left ">
-			<input type="button" value="cancle" class="butn form-btn-right" onclick="">
-		</div>
-</body>
-<script src="https://kit.fontawesome.com/cea4c25e73.js" crossorigin="anonymous"></script>
-<script src="myscripts.js"></script>
-
+  <body>
+    <div class="page">
+      <div class="mian">
+        <header class="header">
+          <div class="header_logo">
+            <a href="/"><img src="./logo.png" alt="logo" />ROAR</a>
+          </div>
+        </header>
+        <div class="post-input-container">
+          <textarea
+            name="post-input"
+            id="post"
+            cols="30"
+            rows="2"
+            placeholder="What's happening?"
+          ></textarea>
+          <button id="tweet_button" class="add-button">Post</button>
+        </div>
+        <div class="news-feed">
+          <div class="post-card">
+            <div class="post-container">
+              <div class="username">
+                <h4>Alaa Shurrab</h4>
+              </div>
+            </div>
+            <div class="post-content">
+              <p class="post-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
+                dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/cea4c25e73.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="myscripts.js"></script>
 </html>
