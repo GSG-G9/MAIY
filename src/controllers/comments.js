@@ -11,11 +11,11 @@ const getComments = (req, res) => {
 };
 
 const createComment = (req, res, next) => {
-  const { commentContent } = req.body;
+  const { commentContent, postId } = req.body;
   if (!commentContent) {
     next(errCatcher('EMPTY input...', 400));
   }
-  postComments(commentContent)
+  postComments(commentContent, postId)
     .then(({ rows }) => {
       res.status(200).json({ rows });
     })
