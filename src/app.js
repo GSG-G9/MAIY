@@ -1,6 +1,7 @@
 const express = require('express');
 const { join } = require('path');
 const { postRoutes, commentRoutes } = require('./routers/index');
+const errorHandele = require('./controllers/error');
 
 const app = express();
 
@@ -16,5 +17,8 @@ app.use(express.static(join(__dirname, '..', 'public')));
 
 app.use('/api/v1', postRoutes);
 app.use('/api/v1', commentRoutes);
+
+app.use('*', errorHandele.error404);
+app.use(errorHandele.serverError);
 
 module.exports = { app };
