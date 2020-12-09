@@ -11,26 +11,26 @@ const getPosts = (req, res) => {
 
 const createPosts = (req, res, next) => {
   const { postContent } = req.body;
-  postPosts(postContent)
-    .then(
-      ({ rows }) => res.status(200).json({ rows }),
-    )
-    .catch(next(errCatcher('something went wrong...', 400)));
   if (!postContent) {
     next(errCatcher('EMPTY input...', 400));
+  } else {
+    postPosts(postContent)
+      .then(
+        ({ rows }) => res.status(200).json({ rows }),
+      )
+      .catch(next(errCatcher('something went wrong...', 400)));
   }
-  return res.status(200).json(postContent);
 };
 
 const updatePost = (req, res, next) => {
   const { postContent } = req.body;
   const { postId } = req.params;
-  updateData(postId, postContent)
-    .then(({ rows }) => res.status(200).json({ rows }))
-    .catch(next(errCatcher('something went wrong...', 400)));
-
   if (!postContent) {
     next(errCatcher('EMPTY input...', 400));
+  } else {
+    updateData(postId, postContent)
+      .then(({ rows }) => res.status(200).json({ rows }))
+      .catch(next(errCatcher('something went wrong...', 400)));
   }
 };
 
