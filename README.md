@@ -18,7 +18,7 @@ This website aims to share your opinions in posts and receive comments and to ap
 - As a user , I want to have the abbility to change the content of my posts in case of wronge input happening 
 
 ## User Journey:
- As a user you will see exsisting posts that you can comment on or even edit and havr thr abbility to create new posts:
+ As a user you will see exsisting posts that you can comment on or even edit and havr thr ability to create new posts:
   - You can enter all that you want to post in the post field in the middle fo the page and when you click 'post' button it will.
   - Your post have been saved in the database and then it'll be displayed on the post container.
   - You can also use the comment putton to add a comment on your own post.
