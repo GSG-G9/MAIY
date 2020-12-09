@@ -1,16 +1,26 @@
 const errCatcher = require('../module/errCatcher');
+const { getData } = require('../database/queries/getData');
+const { postComments } = require('../database/queries/postData');
 
 const getComments = (req, res) => {
-  res.status(200).json({});
+  getData()
+    .then(({ rows }) => {
+      res.status(200).json({ rows });
+    })
+    .catch(errCatcher('NOT FOUND  ...', 400));
 };
 
 const createComment = (req, res, next) => {
   const { commentContent } = req.body;
+  postComments(commentContent)
+    .then(({ rows }) => {
+      res.status(200).json({ rows });
+    })
+    .catch(next(errCatcher('EMPTY input...', 400)));
+
   if (!commentContent) {
-    // throw new Error('Empty input...');
     next(errCatcher('EMPTY input...', 400));
   }
-  res.status(200).json({});
 };
 
 module.exports = { getComments, createComment };
