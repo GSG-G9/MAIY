@@ -17,7 +17,6 @@ switch (process.env.NODE_ENV) {
     break;
   default:
     throw new Error('No Database url .. ');
-    break;
 }
 
 const options = {
