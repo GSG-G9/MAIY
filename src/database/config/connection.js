@@ -10,6 +10,9 @@ switch (process.env.NODE_ENV) {
     URL = process.env.DATABASE_URL;
     break;
   case 'test':
+    URL = process.env.TEST_DB_URL;
+    break;
+  case 'development':
     URL = process.env.DB_URL;
     break;
   default:
