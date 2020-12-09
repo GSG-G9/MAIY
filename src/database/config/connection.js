@@ -1,12 +1,24 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-const { DB_URL } = process.env;
+let URL = '';
 
-if (!DB_URL) throw new Error('No Database url .. ');
+// if (!DB_URL) throw new Error('No Database url .. ');
+
+switch (process.env.NODE_ENV) {
+  case 'production':
+    URL = process.env.DATABASE_URL;
+    break;
+  case 'test':
+    URL = process.env.DB_URL;
+    break;
+  default:
+    throw new Error('No Database url .. ');
+    break;
+}
 
 const options = {
-  connectionString: DB_URL,
+  connectionString: URL,
   ssl: process.env.NODE_ENV === 'production',
 };
 
