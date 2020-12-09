@@ -1,4 +1,4 @@
-const errCatcher = require('../module/errCatcher');
+const { errCatcher } = require('../module/errCatcher');
 const { getData } = require('../database/queries/getData');
 const { postPosts } = require('../database/queries/postData');
 const { updateData } = require('../database/queries/updateData');
@@ -9,8 +9,9 @@ const getPosts = (req, res) => {
     .catch(errCatcher('something went wrong...', 400));
 };
 
-const createPosts = (req, res, next) => {
+const createPost = (req, res, next) => {
   const { postContent } = req.body;
+  console.log(postContent);
   if (!postContent) {
     next(errCatcher('EMPTY input...', 400));
   }
@@ -18,7 +19,7 @@ const createPosts = (req, res, next) => {
     .then(
       ({ rows }) => res.status(200).json({ rows }),
     )
-    .catch(next(errCatcher('something went wrong...', 400)));
+    .catch(next);
 };
 
 const updatePost = (req, res, next) => {
@@ -29,7 +30,7 @@ const updatePost = (req, res, next) => {
   }
   updateData(postId, postContent)
     .then(({ rows }) => res.status(200).json({ rows }))
-    .catch(next(errCatcher('something went wrong...', 400)));
+    .catch(next);
 };
 
-module.exports = { getPosts, createPosts, updatePost };
+module.exports = { getPosts, createPost, updatePost };

@@ -1,13 +1,13 @@
-const errCatcher = require('../module/errCatcher');
+const { errCatcher } = require('../module/errCatcher');
 const { getData } = require('../database/queries/getData');
 const { postComments } = require('../database/queries/postData');
 
-const getComments = (req, res) => {
+const getComments = (req, res, next) => {
   getData()
     .then(({ rows }) => {
       res.status(200).json({ rows });
     })
-    .catch(errCatcher('NOT FOUND  ...', 400));
+    .catch((err) => next(err));
 };
 
 const createComment = (req, res, next) => {
@@ -19,7 +19,7 @@ const createComment = (req, res, next) => {
     .then(({ rows }) => {
       res.status(200).json({ rows });
     })
-    .catch(next(errCatcher('EMPTY input...', 400)));
+    .catch(next);
 };
 
 module.exports = { getComments, createComment };
