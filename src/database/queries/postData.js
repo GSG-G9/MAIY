@@ -17,4 +17,4 @@ const postComments = ({ commentContent }) => {
     return connection.query(sql);
 };
 
-module.exports(postPosts, postComments);
+module.exports = { postPosts, postComments };
