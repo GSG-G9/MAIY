@@ -36,27 +36,28 @@ const makeEmpty = () => {
   });
 };
 
-const renderData = ({ data }) => {
+const renderData = (data) => {
   makeEmpty();
-  console.log(data);
-  data.rows.forEach((obj) => {
+  data.reverse().forEach((obj) => {
     createPost(obj);
   });
 };
 
 addButton.addEventListener('click', () => {
   const postInput = document.querySelector('.post-input').value;
+  if (!postInput) return;
   fetch('/api/v1/create-post', {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({ postContent: postInput }),
   })
-    .then((res) => res.json())
-    .then((data) => {
+    .then(() => {
       fetch('/api/v1/posts')
         .then((res) => res.json())
-        .then(({ data }) => {
-          console.log(data);
-          renderData({ data });
+        .then((data) => {
+          renderData(data);
         })
         .catch((err) => {
           console.log(err);
@@ -69,8 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('/api/v1/posts')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      renderData({ data });
+      renderData(data);
     })
     .catch((err) => {
       console.log(err);

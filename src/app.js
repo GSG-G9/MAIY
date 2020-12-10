@@ -1,5 +1,6 @@
-const express = require('express');
 const { join } = require('path');
+const express = require('express');
+
 const { postRoutes, commentRoutes } = require('./routers/index');
 const errorHandele = require('./controllers/error');
 
