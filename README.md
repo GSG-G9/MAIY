@@ -35,6 +35,8 @@ This website aims to share your opinions in posts and receive comments and to ap
 - JavaScript
 - Express Fromework
 - postgreSQl
+ 
+ ![Demo gif image](/public/images/demo-image.gif "demo image")
 
 ## Stretch Goals
 - To add a login/registration  pages 
