@@ -1,6 +1,6 @@
 # MAIY
 This is a blog website
-for the prototype edition LINK:[Prototype](https://what_so_ever_for_now)
+for the prototype edition LINK:[Prototype](https://maiy.herokuapp.com)
 
 ### Team Members: 
 - Muhammad Abadsa
@@ -22,6 +22,8 @@ This website aims to share your opinions in posts and receive comments and to ap
   - You can enter all that you want to post in the post field in the middle of the page and when you click the 'post' button it will.
   - Your post has been saved in the database and then it'll be displayed on the post container.
   - You can also use the comment button to add a comment on your own post.
+
+##
 
 ## Installation Guide:
 - Clone this repo
